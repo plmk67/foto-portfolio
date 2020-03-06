@@ -1,0 +1,16 @@
+.Nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background-color: darkgrey;
+  padding: 20px;
+}
+
+.Nav___logo {
+  background-color: lightblue;
+}
+
+.Nav___menu {
+  background-color: lightpink;
+}
