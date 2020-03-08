@@ -1,24 +1,45 @@
-import React from "react"
+import React, { Component } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { Container, Row, Col } from "reactstrap"
-import styles from './header.module.css'
+import styles from "./nav.module.css"
 
-const Nav = ({ siteTitle }) => (
-  <Container>
-    <Row className={styles.Nav}>
-      <Col md={6} className={styles.Nav___logo}>VINCENT YIP</Col>
-      <Col md={6} className={styles.Nav___menu}>Menu</Col>
-    </Row>
-  </Container>
-)
-//for checking property type during development phase
-Nav.propTypes = {
-  siteTitle: PropTypes.string,
-}
+class Nav extends Component {
+  constructor() {
+    super()
+    this.state = {
+      toggle: false,
+    }
+    this.handleToggle = this.handleToggle.bind(this)
+  }
 
-Nav.defaultProps = {
-  siteTitle: ``,
+  handleToggle() {
+    this.setState(prevState => ({ toggle: !prevState.toggle }))
+    console.log(this.state.toggle)
+  }
+
+  render() {
+    return (
+      <Container>
+        {this.state.toggle ? (
+          <Row className={styles.Nav__menu}>
+            <a href="">About Me</a>
+            <a href="">Tokyo 2019</a>
+            <a href="">Contact</a>
+            <a href="">Store</a>
+          </Row>
+        ) : null}
+        <Row className={styles.Nav}>
+          <Col md={6} className={styles.Nav___logo}>
+            VINCENT YIP
+          </Col>
+          <Col md={6} className={styles.Nav___menu}>
+            <a onClick={this.handleToggle}>Menu</a>
+          </Col>
+        </Row>
+      </Container>
+    )
+  }
 }
 
 export default Nav

@@ -3,14 +3,42 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  background-color: darkgrey;
+  font-family: "Montserrat", sans-serif;
   padding: 20px;
 }
 
+.Nav__menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    height: 200px;
+    background-color: grey;
+}
+
+
+
+.Nav__menu a {
+    color: white;
+    font-weight: 700;
+    padding: 10px 0px 10px 0px;
+    text-decoration: none;
+}
+
 .Nav___logo {
-  background-color: lightblue;
+  font-weight: 1000;
 }
 
 .Nav___menu {
-  background-color: lightpink;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.Nav___menu a {
+  color: #a3a3a3;
+}
+
+.Nav___menu a:hover {
+  color: black;
 }
