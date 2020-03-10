@@ -1,0 +1,5 @@
+.Content {
+    display: flex;
+    background-color: lightgray;
+    width: 200px;
+}

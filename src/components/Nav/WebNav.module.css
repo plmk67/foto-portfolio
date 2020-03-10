@@ -1,0 +1,47 @@
+.Web__Nav {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: lightpink;
+  height: 500px;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
+a :hover{
+  color: darkgray
+}
+
+
+
+h4 {
+  font-family: inherit;
+}
+
+li {
+  font-size: 14px;
+  list-style-type: none;
+  height: 28px;
+}
+
+.Web__Nav__MainNav {
+}
+
+.Web__Nav__SecondaryNav {
+  margin-top: 20px;
+}
+
+.Web__Nav__SocialMedia {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.Web__Nav__SocialMedia li {
+  padding-right: 10px;
+  font-size: 18px;
+}

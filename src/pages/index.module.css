@@ -1,0 +1,27 @@
+.main_content {
+  font-family: "Montserrat", sans-serif;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+@media screen and (max-width: 776px) {
+  .main_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.WebNav {
+  grid-column-start: 1;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+
+.Content {
+  grid-column-start: 2;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
