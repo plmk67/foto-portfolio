@@ -18,22 +18,28 @@ class MobileNav extends Component {
   render() {
     return (
       <Container className={styles.Mobile__Nav}>
-          {this.state.toggle ? (
-            <Row className={styles.Nav__menu}>
-              <a href="">Japan 2019</a>
-              <a href="">About</a>
-              <a href="">Contact</a>
-              <a href="">Store</a>
-            </Row>
-          ) : null}
-          <Row className={styles.Nav}>
-            <Col md={6} className={styles.Nav___logo}>
-              ANALOG CATALOG
+        {this.state.toggle ? (
+          <Row className={styles.Nav__menu}>
+            <Col className={styles.Nav__MainNav}>
+              <a href="">portrait</a>
+              <a href="">travel</a>
+              <a href="">stills</a>
             </Col>
-            <Col md={6} className={styles.Nav___menu}>
-              <a onClick={this.handleToggle}>Menu</a>
+            <Col className={styles.Nav__SecondaryNav}>
+              <a href="">about</a>
+              <a href="">contact</a>
+              <a href="">store</a>
             </Col>
           </Row>
+        ) : null}
+        <Row className={styles.Nav}>
+          <Col className={styles.Nav___logo}>
+            VINCENT YIP
+          </Col>
+          <Col className={styles.Nav___menu}>
+            <a onClick={this.handleToggle}>Menu</a>
+          </Col>
+        </Row>
       </Container>
     )
   }

@@ -32,24 +32,29 @@ class IndexPage extends Component {
   }
 
   render() {
-    let nav;
+    let nav
 
     if (this.state.width > 776) {
-      nav = <WebNav />
+      nav = (
+        <Col className={styles.Nav}>
+          <WebNav />
+        </Col>
+      )
     } else {
-      nav = <MobileNav />
+      nav = (
+        <Col>
+          <MobileNav />
+        </Col>
+      )
     }
 
     return (
       <Layout>
-        <Row className={styles.main_content}>
-          <Col>{nav}</Col>
+        <Row className={styles.Main_Content}>
+          {nav}
           <Col className={styles.Content}>
             <Content />
           </Col>
-          <p>
-            width {this.state.width} x height {this.state.height}
-          </p>
         </Row>
       </Layout>
     )

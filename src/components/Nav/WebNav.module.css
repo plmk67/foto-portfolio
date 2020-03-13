@@ -1,22 +1,19 @@
 .Web__Nav {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   display: flex;
-  justify-content: center;
-  background-color: lightpink;
-  height: 500px;
-  padding: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* background-color: lightpink; */
 }
 
 a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }
 
-a :hover{
-  color: darkgray
+a :hover {
+  color: darkgray;
 }
-
-
 
 h4 {
   font-family: inherit;
@@ -28,7 +25,13 @@ li {
   height: 28px;
 }
 
+.Web__Nav__Logo {
+  font-size: 30px;
+  /* background-color: lightblue; */
+}
+
 .Web__Nav__MainNav {
+  padding-top: 20px;
 }
 
 .Web__Nav__SecondaryNav {

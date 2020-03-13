@@ -1,27 +1,37 @@
-.main_content {
-  font-family: "Montserrat", sans-serif;
-  display: grid;
-  grid-template-columns: 30% 70%;
+.Main_Content {
+  font-family: "Noto-Sans", sans-serif;
+  display: flex;
+  height: 100%;
+  padding: 60px 80px 60px 80px;
 }
 
 @media screen and (max-width: 776px) {
-  .main_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .Main_Content {
+    padding: 20px;
   }
 }
 
-.WebNav {
-  grid-column-start: 1;
-  background-color: yellow;
+.Nav {
+  font-family: "Noto-Sans", sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  min-width: 300px;
+  /* background-color: lightseagreen; */
 }
 
 .Content {
-  grid-column-start: 2;
   background-color: lightblue;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 776px) {
+  .Main_Content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Content {
+    background-color: lightblue;
+    height: 1000px;
+  }
 }

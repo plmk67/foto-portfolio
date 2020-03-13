@@ -18,39 +18,37 @@ class MobileNav extends Component {
 
   render() {
     return (
-      <Container md={3} className={styles.Web__Nav}>
-        <Row>
-          <Col>
-            <h4>Analog Catalog</h4>
-          </Col>
-          <Col className={styles.Web__Nav__MainNav}>
-            <li>portrait</li>
-            <li>travel</li>
-            <li>stills</li>
-          </Col>
-          <Col className={styles.Web__Nav__SecondaryNav}>
-            <li>about</li>
-            <li>contact</li>
-            <li>store</li>
-          </Col>
-          <Col className={styles.Web__Nav__SocialMedia}>
-            <li>
-              <a href="">
-                <FaInstagram />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <FaLinkedin />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <FaGithubSquare />
-              </a>
-            </li>
-          </Col>
-        </Row>
+      <Container className={styles.Web__Nav}>
+        <Col className={styles.Web__Nav__Logo}>
+          Vincent Yip
+        </Col>
+        <Col className={styles.Web__Nav__MainNav}>
+          <li>portrait</li>
+          <li>travel</li>
+          <li>stills</li>
+        </Col>
+        <Col className={styles.Web__Nav__SecondaryNav}>
+          <li>about</li>
+          <li>contact</li>
+          <li>store</li>
+        </Col>
+        <Col className={styles.Web__Nav__SocialMedia}>
+          <li>
+            <a href="https://www.instagram.com/vingt100yip/">
+              <FaInstagram />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/yipvincent/">
+              <FaLinkedin />
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/plmk67">
+              <FaGithubSquare />
+            </a>
+          </li>
+        </Col>
       </Container>
     )
   }
