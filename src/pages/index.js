@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import { Link } from "gatsby"
 import MobileNav from "../components/Nav/MobileNav"
 import WebNav from "../components/Nav/WebNav"
 import Layout from "../components/layout"
@@ -53,7 +52,9 @@ class IndexPage extends Component {
         <Row className={styles.Main_Content}>
           {nav}
           <Col className={styles.Content}>
-            <Content />
+            <div>
+              <Content />
+            </div>
           </Col>
         </Row>
       </Layout>
