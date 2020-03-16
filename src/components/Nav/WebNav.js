@@ -25,7 +25,7 @@ class MobileNav extends Component {
         <Col className={styles.Web__Nav__MainNav}>
           <li>portrait</li>
           <li>travel</li>
-          <li>stills</li>
+          <li>still</li>
         </Col>
         <Col className={styles.Web__Nav__SecondaryNav}>
           <li>about</li>

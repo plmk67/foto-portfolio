@@ -48,13 +48,11 @@ class IndexPage extends Component {
     }
 
     return (
-      <Layout>
+      <Layout classname={styles.Layout}>
         <Row className={styles.Main_Content}>
           {nav}
           <Col className={styles.Content}>
-            <div>
-              <Content />
-            </div>
+            <Content />
           </Col>
         </Row>
       </Layout>

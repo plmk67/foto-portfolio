@@ -1,3 +1,7 @@
+.Layout{
+  height: 100%;
+}
+
 .Main_Content {
   font-family: "Noto-Sans", sans-serif;
   display: flex;
@@ -31,8 +35,8 @@
   }
 
   .Content {
-    background-color: lightblue;
-    height: 1000px;
+    /* background-color: lightblue; */
+    height: 100%;
   }
 }
 
