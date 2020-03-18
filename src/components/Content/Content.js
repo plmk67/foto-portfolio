@@ -2,9 +2,11 @@ import React from "react"
 import { Container, Row, Col } from "reactstrap"
 import { useStaticQuery, graphql } from "gatsby"
 import styles from "./Content.module.css"
-import Img from "gatsby-image"
+
+import Thumbnails from "../Thumbnails/Thumbnails"
 
 const Content = () => {
+
   const response = useStaticQuery(getImages)
   const data = response.allContentfulJapan2019.edges
   const images = data[0].node.images
@@ -12,15 +14,7 @@ const Content = () => {
   return (
     <Container className={styles.Content}>
       <Col className={styles.Content__Gallery}>
-        {images.map((image, index) => {
-          return (
-            <Img
-              className={styles.Content__Gallery_Img}
-              fluid={image.fluid}
-              alt={index}
-            />
-          )
-        })}
+        <Thumbnails images={images}/>
       </Col>
       <Col className={styles.Content__Info}>
         <Row className={styles.Content__Pagination}>
@@ -33,6 +27,7 @@ const Content = () => {
     </Container>
   )
 }
+
 
 export const getImages = graphql`
   query {
@@ -52,3 +47,14 @@ export const getImages = graphql`
 `
 
 export default Content
+
+// {images.map((image, index) => {
+//   return (
+//     <Img
+//       className={styles.Thumbnails_Img}
+//       key={index}
+//       id={index}
+//       fluid={image.fluid}
+//     />
+//   )
+// })}
