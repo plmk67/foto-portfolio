@@ -2,8 +2,8 @@ import React from "react"
 import Img from "gatsby-image"
 import styles from "./Thumbnails.module.css"
 
-
 const Thumbnails = ({ images }) => {
+
   return (
     <>
       {images.map((image, index) => {
@@ -11,7 +11,7 @@ const Thumbnails = ({ images }) => {
           <Img
             className={styles.Thumbnails_Img}
             key={index}
-            id={index}
+            id={image.id}
             fluid={image.fluid}
           />
         )

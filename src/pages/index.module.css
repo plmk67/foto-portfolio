@@ -1,42 +1,4 @@
-.Layout{
-  height: 100%;
-}
-
-.Main_Content {
-  font-family: "Noto-Sans", sans-serif;
+.Content{
   display: flex;
-  height: 100%;
-  padding: 60px 80px 60px 80px;
+  
 }
-
-@media screen and (max-width: 776px) {
-  .Main_Content {
-    padding: 20px;
-  }
-}
-
-.Nav {
-  font-family: "Noto-Sans", sans-serif;
-  display: flex;
-  justify-content: start;
-  min-width: 240px;
-  /* background-color: lightseagreen; */
-}
-
-.Content {
-  /* background-color: lightblue; */
-  width: 100%;
-}
-
-@media screen and (max-width: 776px) {
-  .Main_Content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .Content {
-    /* background-color: lightblue; */
-    height: 100%;
-  }
-}
-

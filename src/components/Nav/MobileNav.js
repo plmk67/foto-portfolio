@@ -17,7 +17,7 @@ class MobileNav extends Component {
 
   render() {
     return (
-      <Container className={styles.Mobile__Nav}>
+      <Col className={styles.Mobile__Nav}>
         {this.state.toggle ? (
           <Row className={styles.Nav__menu}>
             <Col className={styles.Nav__MainNav}>
@@ -40,7 +40,7 @@ class MobileNav extends Component {
             <a onClick={this.handleToggle}>Menu</a>
           </Col>
         </Row>
-      </Container>
+      </Col>
     )
   }
 }

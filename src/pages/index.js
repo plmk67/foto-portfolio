@@ -1,60 +1,23 @@
-import React, { Component } from "react"
-import MobileNav from "../components/Nav/MobileNav"
-import WebNav from "../components/Nav/WebNav"
-import Layout from "../components/layout"
-import Content from "../components/Content/Content"
-import { Row, Col } from "reactstrap"
+import React from "react"
+import { Container, Row, Col } from "reactstrap"
+import { Router } from "@reach/router"
 
+import Layout from "../components/layout"
+import Main from "./main"
+
+import Test from "../components/test"
 import styles from "./index.module.css"
 
-class IndexPage extends Component {
-  constructor() {
-    super()
-    this.state = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions()
-    window.addEventListener("resize", this.updateWindowDimensions.bind(this))
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions.bind(this))
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight })
-  }
-
+class IndexPage extends React.Component {
   render() {
-    let nav
-
-    if (this.state.width > 776) {
-      nav = (
-        <Col className={styles.Nav}>
-          <WebNav />
-        </Col>
-      )
-    } else {
-      nav = (
-        <Col>
-          <MobileNav />
-        </Col>
-      )
-    }
-
     return (
-      <Layout classname={styles.Layout}>
-        <Row className={styles.Main_Content}>
-          {nav}
-          <Col className={styles.Content}>
-            <Content />
-          </Col>
-        </Row>
+      <Layout>
+        <Col className={styles.Content}>
+          <Router>
+            <Main path="/" />
+            <Test path="test" />
+          </Router>
+        </Col>
       </Layout>
     )
   }

@@ -45,7 +45,7 @@ const Content = () => {
         <div className={styles.next} onClick={() => nextImage()} />
 
         <Col className={styles.Content__Gallery}>
-          {images.map(image => {
+          {/* {images.map(image => {
           return (
             <div onClick={idFinder} className={styles.Content__Gallery_div}>
               <Img
@@ -55,15 +55,15 @@ const Content = () => {
               />
             </div>
           )
-        })}
+        })} */}
 
-          {/* <div onClick={thumbnails} className={styles.Content__Gallery_div}>
+          <div onClick={thumbnails} className={styles.Content__Gallery_div}>
             <Img
               className={styles.Content__Thumbnails_Img}
               alt={images[Object.values({ count })].id}
               fluid={images[Object.values({ count })].fluid}
             />
-          </div> */}
+          </div>
         </Col>
       </Row>
 

@@ -1,9 +1,9 @@
 .Web__Nav {
+  position: fixed;
   font-family: "Noto Sans", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* background-color: lightpink; */
 }
 
 a {

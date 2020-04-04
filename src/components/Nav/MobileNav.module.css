@@ -1,3 +1,7 @@
+.Mobile__Nav{
+  width: 100%;
+}
+
 .Nav {
   display: flex;
   flex-direction: row;
@@ -5,12 +9,6 @@
   justify-content: space-between;
   font-family: "Noto Sans", sans-serif;
   padding: 20px;
-}
-
-@media screen and (min-width: 776px) {
-  .Mobile__Nav {
-    display: none;
-  }
 }
 
 .Nav__menu {

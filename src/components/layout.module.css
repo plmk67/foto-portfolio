@@ -1,0 +1,33 @@
+.Layout {
+  font-family: "Noto-Sans", sans-serif;
+  padding: 40px;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Nav {
+  display: flex;
+  justify-content: start;
+  min-width: 240px;
+}
+
+.Content {
+  background-color: lightblue;
+}
+
+@media screen and (max-width: 776px) {
+  .Container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: lightpink;
+  }
+}

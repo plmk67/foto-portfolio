@@ -1,9 +1,21 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  /* background-color: lightgray; */
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
 .Content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
   /* background-color: lightgray; */
+  height: 100vh;
 }
 
 @media (max-width: 776px) {
@@ -12,14 +24,46 @@
   }
 }
 
+.prev {
+  position: absolute;
+  width: 33%;
+  z-index: 1;
+  height: 100vh;
+  cursor: w-resize;
+}
+
+.thumbnail {
+  position: absolute;
+  width: 33%;
+  z-index: 1;
+  cursor: n-resize;
+  margin-left: 33%;
+
+  height: 100vh;
+}
+
+.next {
+  position: absolute;
+  width: 33%;
+  z-index: 1;
+  height: 100vh;
+  cursor: e-resize;
+  margin-left: 66%;
+}
+
 .Content__Gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
   justify-content: center;
+  flex-direction: flex-start;
   flex-wrap: wrap;
-width: 100%;
-  height: auto;
+  width: 100%;
+  cursor: n-resize;
   /* background-color: pink; */
+}
+
+.Content__Gallery_div {
+  padding: 0px 15px 0px 15px;
+  width: 100%;
 }
 
 @media (max-width: 1280px) {
@@ -34,15 +78,10 @@ width: 100%;
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 585px) {
   .Content__Gallery {
     grid-template-columns: 1fr;
   }
-}
-
-.Content__Gallery_Img {
-  margin: 10px;
-  min-width: 250px;
 }
 
 .Content__Info {
@@ -81,4 +120,9 @@ width: 100%;
 
 .Content__Show_Thumbnails {
   margin-top: 10px;
+}
+
+.Content__Thumbnails_Img {
+  margin: 10px;
+  min-width: 250px;
 }

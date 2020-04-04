@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import MobileNav from "../components/Nav/MobileNav"
-import WebNav from "../components/Nav/WebNav"
+
 
 const SecondPage = () => (
   <Layout>
