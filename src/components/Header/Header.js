@@ -17,7 +17,7 @@ class Header extends Component {
         />
         <script
           src="https://kit.fontawesome.com/41dea8f0bd.js"
-          crossorigin="anonymous"
+         
         ></script>
       </header>
       

@@ -1,0 +1,13 @@
+.Gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 80vw;
+   
+}
+
+.Image{
+    width: 350px;
+    padding: 10px;
+}

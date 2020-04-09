@@ -15,10 +15,15 @@
 }
 
 .Content {
-  background-color: lightblue;
+  height: 100%;
+  /* background-color: lightseagreen; */
 }
 
 @media screen and (max-width: 776px) {
+  .Layout {
+    padding: 5px;
+  }
+
   .Container {
     display: flex;
     flex-direction: column;
