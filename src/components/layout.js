@@ -11,29 +11,21 @@ import Header from "../components/Header/Header"
 import WebNav from "../components/Nav/WebNav"
 import MobileNav from "../components/Nav/MobileNav"
 import styles from "./layout.module.css"
+import MediaQuery from "react-responsive"
 
 const Layout = ({ children }) => {
-  const [width, setWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth)
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  let nav
-
-  if (width > 776) {
-    nav = <WebNav />
-  } else {
-    nav = <MobileNav />
-  }
-
   return (
     <div className={styles.Layout}>
       <Header />
       <Container className={styles.Container}>
-        <Col className={styles.Nav}>{nav}</Col>
+        <Col className={styles.Nav}>
+          <MediaQuery minWidth={812}>
+            <WebNav />
+          </MediaQuery>
+          <MediaQuery maxWidth={812}>
+            <MobileNav />
+          </MediaQuery>
+        </Col>
         <Col className={styles.Content}> {children}</Col>
       </Container>
     </div>
