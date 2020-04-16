@@ -4,13 +4,18 @@ import { Col, Row } from "reactstrap"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import styles from "./image-template.module.css"
-import Get from 'react-lodash'
+import get from 'lodash.get'
 
 const Template = ({ data, pageContext }) => {
   
-    const { images } = data.contentfulJapan2019
+    const { images } = get(data, pageContext.project)
 
-  console.log(pageContext.project)
+  //   const myObj = { user: { firstName: 'Stacky', lastName: 'Overflowy' }, id: 123 };
+
+  //   console.log(get(data, pageContext.project))
+  //   console.log(get)
+
+  // console.log(typeof(pageContext.project))
 
   return (
     <Layout>
@@ -21,7 +26,7 @@ const Template = ({ data, pageContext }) => {
           </Get> */}
         {images.map(image => {
           return (
-            <Col className={styles.Image}>
+            <Col key={image.id} className={styles.Image}>
               <Img alt={image.id} fluid={image.fluid} />
             </Col>
           )

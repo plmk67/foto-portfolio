@@ -1,22 +1,22 @@
 import React from "react"
 import { Container, Row, Col } from "reactstrap"
-import { Router } from "@reach/router"
-
 import Layout from "../components/layout"
-import Main from "./main"
-
+import Main from "../components/main"
 import Test from "../components/test"
 import styles from "./index.module.css"
+import MediaQuery from "react-responsive"
 
 class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
         <Col className={styles.Content}>
-          <Router>
-            <Main path="/" />
-            <Test path="test" />
-          </Router>
+          <MediaQuery minWidth={813}>
+            <Main />
+          </MediaQuery>
+          <MediaQuery maxWidth={812}>
+            <p> this will be a list of photos</p>
+          </MediaQuery>
         </Col>
       </Layout>
     )

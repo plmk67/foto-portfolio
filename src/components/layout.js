@@ -10,6 +10,7 @@ import { Container, Col, Row } from "reactstrap"
 import Header from "../components/Header/Header"
 import WebNav from "../components/Nav/WebNav"
 import MobileNav from "../components/Nav/MobileNav"
+import Main from "../components/main"
 import styles from "./layout.module.css"
 import MediaQuery from "react-responsive"
 
@@ -19,12 +20,14 @@ const Layout = ({ children }) => {
       <Header />
       <Container className={styles.Container}>
         <Col className={styles.Nav}>
-          <MediaQuery minWidth={812}>
+          <MediaQuery minWidth={813}>
             <WebNav />
           </MediaQuery>
           <MediaQuery maxWidth={812}>
             <MobileNav />
+           
           </MediaQuery>
+          
         </Col>
         <Col className={styles.Content}> {children}</Col>
       </Container>
