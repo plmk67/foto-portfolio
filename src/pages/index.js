@@ -5,7 +5,6 @@ import Main from "../components/main"
 import styles from "./index.module.css"
 import MediaQuery from "react-responsive"
 
-
 class IndexPage extends React.Component {
   render() {
     return (
@@ -15,7 +14,7 @@ class IndexPage extends React.Component {
             <Main />
           </MediaQuery>
           <MediaQuery maxWidth={812}>
-            <p> this will be a list of photos</p>
+            <Main />
           </MediaQuery>
         </Col>
       </Layout>

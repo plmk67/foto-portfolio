@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import { Container } from "reactstrap"
+import { Col } from "reactstrap"
 import styles from "./main.module.css"
 
 const Main = () => {
@@ -10,15 +10,11 @@ const Main = () => {
   const heroImage = data[0].node.images[0]
 
   return (
-    <Container className={styles.Col}>
-      <Link to='/project/japan%202019'>
-        <Img
-          className={styles.heroImage}
-          alt={heroImage.id}
-          fluid={heroImage.fluid}
-        />
+    <Col className={styles.Col}>
+      <Link to="/project/japan%202019">
+        <Img alt={heroImage.id} fluid={heroImage.fluid} />
       </Link>
-    </Container>
+    </Col>
   )
 }
 

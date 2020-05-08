@@ -21,11 +21,6 @@ class MobileNav extends Component {
         {this.state.toggle ? (
           <Row className={styles.Nav__menu}>
             <Col className={styles.Nav__MainNav}>
-              <a href="">portrait</a>
-              <a href="">travel</a>
-              <a href="">stills</a>
-            </Col>
-            <Col className={styles.Nav__SecondaryNav}>
               <a href="">about</a>
               <a href="">contact</a>
               <a href="">store</a>
@@ -33,9 +28,7 @@ class MobileNav extends Component {
           </Row>
         ) : null}
         <Row className={styles.Nav}>
-          <Col className={styles.Nav___logo}>
-            VINCENT YIP
-          </Col>
+          <Col className={styles.Nav___logo}>VINCENT YIP</Col>
           <Col className={styles.Nav___menu}>
             <a onClick={this.handleToggle}>Menu</a>
           </Col>
