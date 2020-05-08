@@ -22,13 +22,10 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/photo/*`] },
+    },
     `gatsby-plugin-playground`,
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-sharp`,

@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { Container, Row, Col } from "reactstrap"
+import { Link } from "gatsby"
+import { Container, Col } from "reactstrap"
 import styles from "./WebNav.module.css"
 import { FaInstagram, FaLinkedin, FaGithubSquare } from "react-icons/fa"
 
-class MobileNav extends Component {
+class WebNav extends Component {
   constructor() {
     super()
     this.state = {
@@ -20,12 +21,9 @@ class MobileNav extends Component {
     return (
       <Container className={styles.Web__Nav}>
         <Col className={styles.Web__Nav__Logo}>
-          Vincent Yip
-        </Col>
+          <Link to="/">vincent yip</Link></Col>
         <Col className={styles.Web__Nav__MainNav}>
-          <li>portrait</li>
-          <li>travel</li>
-          <li>still</li>
+          <li>photography works</li>
         </Col>
         <Col className={styles.Web__Nav__SecondaryNav}>
           <li>about</li>
@@ -54,4 +52,4 @@ class MobileNav extends Component {
   }
 }
 
-export default MobileNav
+export default WebNav

@@ -1,38 +1,57 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { Col, Row } from "reactstrap"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import styles from "./image-template.module.css"
-import get from 'lodash.get'
+import get from "lodash.get"
 
-const Template = ({ data, pageContext }) => {
-  
-    const { images } = get(data, pageContext.project)
+const Template = ({ location, data, pageContext }) => {
+  const { images } = get(data, pageContext.project)
 
-  //   const myObj = { user: { firstName: 'Stacky', lastName: 'Overflowy' }, id: 123 };
+  const [modal, setModal] = useState(false)
+  const [index, setIndex] = useState(0)
 
-  //   console.log(get(data, pageContext.project))
-  //   console.log(get)
+  const toggle = e => {
+    setModal(!modal)
 
-  // console.log(typeof(pageContext.project))
+    if (isNaN(e.target.alt) === false) {
+      setIndex(e.target.alt)
+    }
+  }
+
+  let display = ""
+
+  if (modal === false) {
+    display = (
+      <Col className={styles.Layout}>
+        <Row className={styles.Gallery}>
+          {images.map((image, index) => {
+            return (
+              <Col onClick={toggle} key={image.id} className={styles.Image}>
+                <Img alt={index} fluid={image.fluid} />
+              </Col>
+            )
+          })}
+        </Row>
+      </Col>
+    )
+  } else {
+    display = (
+      <Col className={styles.Layout_Modal}>
+        <Row className={styles.Modal}>
+          <Row onClick={toggle} className={styles.main_image}>
+            <Img alt={images[index].id} fluid={images[index].fluid} />
+          </Row>
+        </Row>
+      </Col>
+    )
+  }
 
   return (
-    <Layout>
-      <Row className={styles.Gallery}>
-
-          {/* <Get object={data} path={pageContext.project}>
-              {value => <p>It works</p> }
-          </Get> */}
-        {images.map(image => {
-          return (
-            <Col key={image.id} className={styles.Image}>
-              <Img alt={image.id} fluid={image.fluid} />
-            </Col>
-          )
-        })}
-      </Row>
-    </Layout>
+    <div>
+      <Layout>{display}</Layout>
+    </div>
   )
 }
 
@@ -41,7 +60,7 @@ export const query = graphql`
     contentfulJapan2019(slug: { eq: $slug }) {
       slug
       images {
-        fluid(maxWidth: 5000, quality: 100) {
+        fluid(maxWidth: 2000, quality: 100) {
           ...GatsbyContentfulFluid
         }
       }

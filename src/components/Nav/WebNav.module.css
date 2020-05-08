@@ -1,18 +1,21 @@
 .Web__Nav {
   position: fixed;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Noto-Sans", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  color: #B2B0B0;
+  letter-spacing: 1.5px;
+  font-weight: 300;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #B2B0B0;
 }
 
 a :hover {
-  color: darkgray;
+  color: #B2B0B0;
 }
 
 h4 {
