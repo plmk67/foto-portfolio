@@ -11,7 +11,6 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <Col className={styles.Content}>
-
           <MediaQuery minWidth={813}>
             <Main />
           </MediaQuery>
