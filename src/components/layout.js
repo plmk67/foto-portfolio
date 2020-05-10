@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Col } from "reactstrap"
 import Header from "../components/Header/Header"
-import WebNav from "../components/Nav/WebNav"
+import WebNav from "./Nav/WebNav"
 import MobileNav from "../components/Nav/MobileNav"
 import styles from "./layout.module.css"
 import MediaQuery from "react-responsive"

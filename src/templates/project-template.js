@@ -22,21 +22,7 @@ const Template = ({ location, data, pageContext }) => {
 
   let display = ""
 
-  if (modal === false) {
-    display = (
-      <Col className={styles.Layout}>
-        <Row className={styles.Gallery}>
-          {images.map((image, index) => {
-            return (
-              <Col onClick={toggle} key={image.id} className={styles.Image}>
-                <Img alt={index} fluid={image.fluid} />
-              </Col>
-            )
-          })}
-        </Row>
-      </Col>
-    )
-  } else {
+  if (modal === true) {
     display = (
       <Col className={styles.Layout_Modal}>
         <Row className={styles.Modal}>
@@ -50,7 +36,20 @@ const Template = ({ location, data, pageContext }) => {
 
   return (
     <div>
-      <Layout>{display}</Layout>
+      <Layout>
+        <Col className={styles.Layout}>
+          {display}
+          <Row className={styles.Gallery}>
+            {images.map((image, index) => {
+              return (
+                <Col onClick={toggle} key={image.id} className={styles.Image}>
+                  <Img alt={index} fluid={image.fluid} />
+                </Col>
+              )
+            })}
+          </Row>
+        </Col>
+      </Layout>
     </div>
   )
 }
