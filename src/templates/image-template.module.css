@@ -53,3 +53,35 @@
   width: 80%;
   max-width: 1600px;
 }
+
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  height: 50%;
+}
+
+.Navigation__Previous {
+  width: 30%;
+}
+
+.Navigation__Previous:hover {
+  cursor: w-resize;
+}
+
+.Navigation__Gallery {
+  width: 40%;
+}
+.Navigation__Gallery {
+  cursor: n-resize;
+}
+
+.Navigation__Next {
+  width: 30%;
+}
+
+.Navigation__Next:hover {
+  cursor: e-resize;
+}
