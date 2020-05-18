@@ -4,7 +4,7 @@ import { Container, Row, Col } from "reactstrap"
 import styles from "./main.module.css"
 import Img from "gatsby-image"
 import { FiPlus } from "react-icons/fi"
-import { MdExpandMore, MdExpandLess } from "react-icons/Md"
+import { MdExpandMore, MdExpandLess } from "react-icons/md"
 
 //use forEach to initialize state
 const initialState = [
@@ -102,8 +102,8 @@ const Main = () => {
         <Row style={toggleSwitch[0].toggle} className={styles.Film_Strip}>
           {images.map((image, index) => {
             return (
-              <Col className={styles.film}>
-                <Img key={0} alt={index} fluid={image.fluid} />
+              <Col key={image.id} className={styles.film}>
+                <Img key={image.id} alt={index} fluid={image.fluid} />
               </Col>
             )
           })}
@@ -128,14 +128,14 @@ const Main = () => {
           {images1.map((image, index) => {
             if (image.fluid.aspectRatio > 1) {
               return (
-                <Col className={styles.filmLandscape}>
-                  <Img alt={index} fluid={image.fluid} />
+                <Col key={image.id} className={styles.filmLandscape}>
+                  <Img key={image.id} alt={index} fluid={image.fluid} />
                 </Col>
               )
             } else {
               return (
-                <Col className={styles.filmPortrait}>
-                  <Img alt={index} fluid={image.fluid} />
+                <Col key={image.id} className={styles.filmPortrait}>
+                  <Img key={image.id} alt={image.id} fluid={image.fluid} />
                 </Col>
               )
             }
