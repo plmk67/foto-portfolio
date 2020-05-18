@@ -21,14 +21,16 @@ class WebNav extends Component {
     return (
       <Container className={styles.Web__Nav}>
         <Col className={styles.Web__Nav__Logo}>
-          <Link to="/">vincent yip</Link></Col>
-        <Col className={styles.Web__Nav__MainNav}>
-          <li>photography works</li>
+          <Link to="/">vincent yip</Link>
         </Col>
         <Col className={styles.Web__Nav__SecondaryNav}>
-          <li>about</li>
+          <li>
+            <Link to="/about/">about</Link>
+          </li>
           <li>contact</li>
-          <li>store</li>
+          <li>
+            <Link to="/blog/">blog</Link>
+          </li>
         </Col>
         <Col className={styles.Web__Nav__SocialMedia}>
           <li>

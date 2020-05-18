@@ -1,0 +1,40 @@
+.About {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100vw;
+  color: white;
+  font-weight: 200;
+}
+
+.Description {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  text-align: left;
+}
+
+.Profile_Picture {
+  padding-right: 40px;
+  min-width: 500px;
+}
+
+@media screen and (max-width: 812px) {
+  .About {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    color: white;
+  }
+
+  .Profile_Picture {
+    padding-right: 40px;
+    min-width: 100%;
+  }
+
+  .Description {
+    width: 100%;
+    padding: 5px;
+  }
+}

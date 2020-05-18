@@ -52,6 +52,7 @@
 .main_image {
   width: 80%;
   max-width: 1600px;
+  transition-duration: 1s;
 }
 
 .Navigation {

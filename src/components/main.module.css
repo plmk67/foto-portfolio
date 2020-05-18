@@ -1,6 +1,72 @@
-.Col {
+.Grid {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 1280px;
+  height: 100%;
 }
 
+.Container {
+  padding-bottom: 30px;
+}
 
+.Gallery {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.Gallery__Expand {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  
+}
+
+.Gallery__ImageCount {
+  margin-left: auto;
+}
+
+.film {
+  height: 200px;
+  width: 300px;
+  padding: 0px 15px 10px 0px;
+  object-fit: cover;
+}
+
+.Film_Strip {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  z-index: 0;
+  transition-duration: 0.6s;
+}
+
+.filmPortrait {
+  height: 300px;
+  width: 200px;
+  padding: 0px 15px 10px 0px;
+  object-fit: cover;
+}
+
+.filmLandscape {
+  height: 300px;
+  width: 400px;
+  padding: 0px 15px 10px 0px;
+  object-fit: cover;
+}
+
+.MdExpandMore{
+  display: flex;
+  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
+  justify-content: center;
+  font-size: 30px;
+  transition-duration: 0.6s;
+}
+
+.MdExpandMore:hover{
+  cursor: pointer;
+  background-color: rgb(194, 194, 194);
+  transition-duration: 0.6s;
+}
