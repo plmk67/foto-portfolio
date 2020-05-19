@@ -6,7 +6,6 @@ import Img from "gatsby-image"
 import { FiPlus } from "react-icons/fi"
 import { MdExpandMore, MdExpandLess } from "react-icons/md"
 
-//use forEach to initialize state
 const initialState = [
   {
     id: 0,
@@ -18,9 +17,12 @@ const initialState = [
     toggle: { overflow: "hidden", height: "180px" },
     collapseButton: <MdExpandMore id={1} />,
   },
+  {
+    id: 2,
+    toggle: { overflow: "hidden", height: "180px" },
+    collapseButton: <MdExpandMore id={2} />,
+  },
 ]
-
-//not the cleanest but that will do pig...that'll do
 
 const toggleReducer = (state, action) => {
   switch (action.type) {
@@ -59,12 +61,11 @@ const Main = () => {
   const response = useStaticQuery(getImages)
   const data = response.allContentfulJapan2019.edges
   const data1 = response.allContentfulOscarKwongDesign.edges
+  const data2 = response.allContentfulNyc2019.edges
   const images = data[0].node.images
   const images1 = data1[0].node.images
+  const images2 = data2[0].node.images
 
-  var collapseButton = <MdExpandMore id={0} />
-
-  console.log(data)
 
   let Toggle = e => {
     if (toggleSwitch[parseInt(e.target.id)] === undefined) {
@@ -74,19 +75,18 @@ const Main = () => {
       toggleSwitch[parseInt(e.target.id)].toggle.overflow == "hidden"
     ) {
       dispatch({ type: "TOGGLEON", id: parseInt(e.target.id) })
-      return (collapseButton = <MdExpandLess />)
     } else if (
       toggleSwitch[parseInt(e.target.id)].toggle.overflow == "visible"
     ) {
       dispatch({ type: "TOGGLEOFF", id: parseInt(e.target.id) })
-      return (collapseButton = <MdExpandMore />)
+
     }
   }
 
-  console.log("this is the button " + collapseButton)
 
   return (
     <Container className={styles.Grid}>
+      Japan 2019
       <Container className={styles.Container}>
         <Row className={styles.Gallery}>
           <Col className={styles.Gallery__Expand}>
@@ -112,6 +112,9 @@ const Main = () => {
           {toggleSwitch[0].collapseButton}
         </Row>
       </Container>
+
+      {/* OSCAR KWONG DESIGNS */}
+
       <Container className={styles.Container}>
         <Row className={styles.Gallery}>
           <Col className={styles.Gallery__Expand}>
@@ -145,6 +148,41 @@ const Main = () => {
           {toggleSwitch[1].collapseButton}
         </Row>
       </Container>
+
+       {/* NYC 2019 */}
+      <Container className={styles.Container}>
+        <Row className={styles.Gallery}>
+          <Col className={styles.Gallery__Expand}>
+            <FiPlus />
+          </Col>
+          <Col className={styles.Gallery__Title}>
+            <p>NYC 2019</p>
+          </Col>
+          <Col className={styles.Gallery__ImageCount}>
+            <p>{images2.length} images</p>
+          </Col>
+        </Row>
+        <Row style={toggleSwitch[2].toggle} className={styles.Film_Strip}>
+          {images2.map((image, index) => {
+            if (image.fluid.aspectRatio > 1) {
+              return (
+                <Col key={image.id} className={styles.filmLandscape}>
+                  <Img key={image.id} alt={index} fluid={image.fluid} />
+                </Col>
+              )
+            } else {
+              return (
+                <Col key={image.id} className={styles.filmPortrait}>
+                  <Img key={image.id} alt={image.id} fluid={image.fluid} />
+                </Col>
+              )
+            }
+          })}
+        </Row>
+        <Row onClick={e => Toggle(e)} id={2} className={styles.MdExpandMore}>
+          {toggleSwitch[2].collapseButton}
+        </Row>
+      </Container>
     </Container>
   )
 }
@@ -176,7 +214,20 @@ export const getImages = graphql`
         }
       }
     }
+    allContentfulNyc2019 {
+      edges {
+        node {
+          id
+          images {
+            fluid(maxWidth: 5000, quality: 100) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    }
   }
+  
 `
 
 export default Main
