@@ -86,7 +86,7 @@ const Main = () => {
 
   return (
     <Container className={styles.Grid}>
-      Japan 2019
+      
       <Container className={styles.Container}>
         <Row className={styles.Gallery}>
           <Col className={styles.Gallery__Expand}>
