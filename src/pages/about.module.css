@@ -3,8 +3,13 @@
   flex-direction: row;
   height: 100%;
   width: 100vw;
-  color: white;
+  color: black;
   font-weight: 200;
+  font-family: "Noto-Sans", sans-serif;
+}
+
+li{
+  font-family: "Noto-Sans", sans-serif;
 }
 
 .Description {
