@@ -5,6 +5,7 @@ import styles from "./main.module.css"
 import Img from "gatsby-image"
 import { FiPlus } from "react-icons/fi"
 import { MdExpandMore, MdExpandLess } from "react-icons/md"
+import { number } from "prop-types"
 
 const initialState = [
   {
@@ -59,7 +60,7 @@ const toggleReducer = (state, action) => {
 const Main = () => {
   const [toggleSwitch, dispatch] = useReducer(toggleReducer, initialState)
   const [modal, setModal] = useState(false)
-  const [modalImages, setModalImages] = useState([])
+  const [modalImages, setModalImages] = useState()
   const [index, setIndex] = useState(0)
 
   const response = useStaticQuery(getImages)
@@ -85,19 +86,21 @@ const Main = () => {
     }
   }
 
-  const Modal = (event, images) => {
-    if (modal === false) {
+  const Modal = (event, i) => {
+    if (event.target.alt === undefined) {
+      setModal(false)
+      setIndex(0)
+      console.log("nothing happened here!!")
+    } else if (modal === false) {
       setModal(true)
-      setModalImages(images)
+      setModalImages(i)
       setIndex(parseInt(event.target.alt))
-      console.log(images)
+      console.log(i)
     } else {
       setModal(false)
       setIndex(0)
+      console.log("nothing")
     }
- 
-    console.log(event.target.alt)
-    console.log(images)
   }
 
   const previous = () => {
@@ -111,8 +114,8 @@ const Main = () => {
   }
 
   const next = () => {
-    if (index === images.length - 1) {
-      setIndex(images.length - 1)
+    if (index === modalImages.length - 1) {
+      setIndex(modalImages.length - 1)
     } else {
       setIndex(index + 1)
     }
@@ -124,15 +127,12 @@ const Main = () => {
     display = (
       <Container className={styles.Modal}>
         <Row className={styles.Navigation}>
-          <Col
-            onClick={previous}
-            className={styles.Navigation__Previous}
-          />
+          <Col onClick={previous} className={styles.Navigation__Previous} />
           <Col onClick={Modal} className={styles.Navigation__Gallery} />
           <Col onClick={next} className={styles.Navigation__Next} />
         </Row>
         <Row className={styles.Modal_Image}>
-          <Img alt={images[index].id} fluid={images[index].fluid} />
+          <Img alt={modalImages[index].id} fluid={modalImages[index].fluid} />
         </Row>
       </Container>
     )
@@ -156,7 +156,7 @@ const Main = () => {
           </Col>
         </Row>
         <Row
-          onClick={(e) => Modal(e, images)}
+          onClick={e => Modal(e, images)}
           style={toggleSwitch[0].toggle}
           className={styles.Film_Strip}
         >
@@ -187,7 +187,11 @@ const Main = () => {
             <p>{images1.length} images</p>
           </Col>
         </Row>
-        <Row style={toggleSwitch[1].toggle} className={styles.Film_Strip}>
+        <Row
+          onClick={e => Modal(e, images1)}
+          style={toggleSwitch[1].toggle}
+          className={styles.Film_Strip}
+        >
           {images1.map((image, index) => {
             if (image.fluid.aspectRatio > 1) {
               return (
@@ -198,7 +202,7 @@ const Main = () => {
             } else {
               return (
                 <Col key={image.id} className={styles.filmPortrait}>
-                  <Img key={image.id} alt={image.id} fluid={image.fluid} />
+                  <Img key={image.id} alt={index} fluid={image.fluid} />
                 </Col>
               )
             }
@@ -222,7 +226,11 @@ const Main = () => {
             <p>{images2.length} images</p>
           </Col>
         </Row>
-        <Row style={toggleSwitch[2].toggle} className={styles.Film_Strip}>
+        <Row
+          onClick={e => Modal(e, images2)}
+          style={toggleSwitch[2].toggle}
+          className={styles.Film_Strip}
+        >
           {images2.map((image, index) => {
             if (image.fluid.aspectRatio > 1) {
               return (
