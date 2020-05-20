@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Container, Row, Col } from "reactstrap"
 import styles from "./main.module.css"
@@ -50,6 +50,7 @@ const toggleReducer = (state, action) => {
           return film
         }
       })
+
     default:
       return state
   }
@@ -57,6 +58,9 @@ const toggleReducer = (state, action) => {
 
 const Main = () => {
   const [toggleSwitch, dispatch] = useReducer(toggleReducer, initialState)
+  const [modal, setModal] = useState(false)
+  const [modalImages, setModalImages] = useState([])
+  const [index, setIndex] = useState(0)
 
   const response = useStaticQuery(getImages)
   const data = response.allContentfulJapan2019.edges
@@ -66,8 +70,7 @@ const Main = () => {
   const images1 = data1[0].node.images
   const images2 = data2[0].node.images
 
-
-  let Toggle = e => {
+  const Toggle = e => {
     if (toggleSwitch[parseInt(e.target.id)] === undefined) {
       console.log("undefined")
       console.log(e.target)
@@ -79,14 +82,67 @@ const Main = () => {
       toggleSwitch[parseInt(e.target.id)].toggle.overflow == "visible"
     ) {
       dispatch({ type: "TOGGLEOFF", id: parseInt(e.target.id) })
-
     }
   }
 
+  const Modal = (event, images) => {
+    if (modal === false) {
+      setModal(true)
+      setModalImages(images)
+      setIndex(parseInt(event.target.alt))
+      console.log(images)
+    } else {
+      setModal(false)
+      setIndex(0)
+    }
+ 
+    console.log(event.target.alt)
+    console.log(images)
+  }
+
+  const previous = () => {
+    if (index <= 0) {
+      setIndex(0)
+      console.log("first image")
+    } else {
+      setIndex(index - 1)
+      console.log(index)
+    }
+  }
+
+  const next = () => {
+    if (index === images.length - 1) {
+      setIndex(images.length - 1)
+    } else {
+      setIndex(index + 1)
+    }
+  }
+
+  let display = ""
+
+  if (modal === true) {
+    display = (
+      <Container className={styles.Modal}>
+        <Row className={styles.Navigation}>
+          <Col
+            onClick={previous}
+            className={styles.Navigation__Previous}
+          />
+          <Col onClick={Modal} className={styles.Navigation__Gallery} />
+          <Col onClick={next} className={styles.Navigation__Next} />
+        </Row>
+        <Row className={styles.Modal_Image}>
+          <Img alt={images[index].id} fluid={images[index].fluid} />
+        </Row>
+      </Container>
+    )
+  } else if (modal === false) {
+    display = ""
+  }
 
   return (
     <Container className={styles.Grid}>
-      
+      {display}
       <Container className={styles.Container}>
         <Row className={styles.Gallery}>
           <Col className={styles.Gallery__Expand}>
@@ -99,7 +155,11 @@ const Main = () => {
             <p>{images.length} images</p>
           </Col>
         </Row>
-        <Row style={toggleSwitch[0].toggle} className={styles.Film_Strip}>
+        <Row
+          onClick={(e) => Modal(e, images)}
+          style={toggleSwitch[0].toggle}
+          className={styles.Film_Strip}
+        >
           {images.map((image, index) => {
             return (
               <Col key={image.id} className={styles.film}>
@@ -149,7 +209,7 @@ const Main = () => {
         </Row>
       </Container>
 
-       {/* NYC 2019 */}
+      {/* NYC 2019 */}
       <Container className={styles.Container}>
         <Row className={styles.Gallery}>
           <Col className={styles.Gallery__Expand}>
@@ -227,7 +287,6 @@ export const getImages = graphql`
       }
     }
   }
-  
 `
 
 export default Main

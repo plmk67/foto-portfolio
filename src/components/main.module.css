@@ -32,6 +32,7 @@
   width: 300px;
   padding: 0px 15px 10px 0px;
   object-fit: cover;
+  cursor: zoom-in;
 }
 
 .Film_Strip {
@@ -69,4 +70,53 @@
   cursor: pointer;
   background-color: rgb(194, 194, 194);
   transition-duration: 0.6s;
+}
+
+.Modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  background-color: rgb(255, 255, 255,0.9);
+  z-index: 5;
+}
+
+.Modal_Image{
+  width: 75%;
+  z-index: 5;
+ 
+}
+
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 50%;
+}
+
+.Navigation__Previous {
+  width: 30%;
+}
+
+.Navigation__Previous:hover {
+  cursor: w-resize;
+}
+
+.Navigation__Gallery {
+  width: 40%;
+}
+.Navigation__Gallery {
+  cursor: n-resize;
+}
+
+.Navigation__Next {
+  width: 30%;
+}
+
+.Navigation__Next:hover {
+  cursor: e-resize;
 }
