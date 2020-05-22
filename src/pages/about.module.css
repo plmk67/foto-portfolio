@@ -5,7 +5,7 @@
   width: 100vw;
   color: black;
   font-weight: 200;
-  font-family: "Noto-Sans", sans-serif;
+  font-family: "Noto-Sans";
 }
 
 li{
@@ -17,6 +17,7 @@ li{
   flex-direction: column;
   width: 40%;
   text-align: left;
+  font-family: "Noto-Sans", sans-serif;
 }
 
 .Profile_Picture {

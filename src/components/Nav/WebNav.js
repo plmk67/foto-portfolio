@@ -27,7 +27,6 @@ class WebNav extends Component {
           <li>
             <Link to="/about/">about</Link>
           </li>
-          <li>contact</li>
           <li>
             <Link to="/blog/">blog</Link>
           </li>

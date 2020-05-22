@@ -5,7 +5,6 @@ import styles from "./main.module.css"
 import Img from "gatsby-image"
 import { FiPlus } from "react-icons/fi"
 import { MdExpandMore, MdExpandLess } from "react-icons/md"
-import { number } from "prop-types"
 
 const initialState = [
   {
@@ -63,6 +62,11 @@ const Main = () => {
   const [modalImages, setModalImages] = useState()
   const [index, setIndex] = useState(0)
 
+  //dirty but clean up later
+  const [ModalImageStyle, setModalImageStyle] = useState({
+    width: "80%",
+  })
+
   const response = useStaticQuery(getImages)
   const data = response.allContentfulJapan2019.edges
   const data1 = response.allContentfulOscarKwongDesign.edges
@@ -70,6 +74,37 @@ const Main = () => {
   const images = data[0].node.images
   const images1 = data1[0].node.images
   const images2 = data2[0].node.images
+
+  const ModalStyle = () => {
+    if (typeof modalImages == "undefined") {
+      console.log("no images yet")
+    } else if (modalImages[index].fluid.aspectRatio > 1) {
+      setModalImageStyle({
+        width: "80%",
+      })
+    } else {
+      setModalImageStyle({
+        width: "40%",
+      })
+      console.log(ModalImageStyle)
+    }
+  }
+
+  const ModalStyle2 = () => {
+    if (typeof modalImages == "undefined") {
+      console.log("no images yet")
+    } else if (modalImages[index].fluid.aspectRatio > 1) {
+      setModalImageStyle({
+        width: "80%",
+      })
+    } else {
+      setModalImageStyle({
+        width: "40%",
+      })
+      console.log(ModalImageStyle)
+    }
+  }
+
 
   const Toggle = e => {
     if (toggleSwitch[parseInt(e.target.id)] === undefined) {
@@ -90,20 +125,18 @@ const Main = () => {
     if (event.target.alt === undefined) {
       setModal(false)
       setIndex(0)
-      console.log("nothing happened here!!")
     } else if (modal === false) {
       setModal(true)
       setModalImages(i)
       setIndex(parseInt(event.target.alt))
-      console.log(i)
     } else {
       setModal(false)
       setIndex(0)
-      console.log("nothing")
     }
   }
 
   const previous = () => {
+    ModalStyle()
     if (index <= 0) {
       setIndex(0)
       console.log("first image")
@@ -119,6 +152,7 @@ const Main = () => {
     } else {
       setIndex(index + 1)
     }
+    ModalStyle()
   }
 
   let display = ""
@@ -131,7 +165,7 @@ const Main = () => {
           <Col onClick={Modal} className={styles.Navigation__Gallery} />
           <Col onClick={next} className={styles.Navigation__Next} />
         </Row>
-        <Row className={styles.Modal_Image}>
+        <Row style={ModalImageStyle}>
           <Img alt={modalImages[index].id} fluid={modalImages[index].fluid} />
         </Row>
       </Container>
@@ -163,7 +197,12 @@ const Main = () => {
           {images.map((image, index) => {
             return (
               <Col key={image.id} className={styles.film}>
-                <Img key={image.id} alt={index} fluid={image.fluid} />
+                <Img
+                  className={styles.filmFocus}
+                  key={image.id}
+                  alt={index}
+                  fluid={image.fluid}
+                />
               </Col>
             )
           })}

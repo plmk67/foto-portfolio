@@ -1,11 +1,8 @@
 import React, { Component } from "react"
 
 class Header extends Component {
- 
-
   render() {
     return (
-      
       <header>
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -15,12 +12,8 @@ class Header extends Component {
           href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
           rel="stylesheet"
         />
-        <script
-          src="https://kit.fontawesome.com/41dea8f0bd.js"
-         
-        ></script>
+        <script src="https://kit.fontawesome.com/41dea8f0bd.js"></script>
       </header>
-      
     )
   }
 }
